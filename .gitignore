@@ -1,1 +1,4 @@
 obj/
+test_runsim_nopygame.py
+*.swp
+__pycache__
