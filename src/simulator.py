@@ -1,5 +1,8 @@
+# simulator.py - Main thread
 
-from src.peeps import Peeps
+# This file contains Simulator(), the top-level entry point of the simulator.
+
+from src.peeps import deathQueue, moveQueue, Peeps
 
 POPULATION = 300
 
@@ -19,19 +22,23 @@ class Simulator:
 
 
     # grid.init
-    #def drawGrid():
-    #    blocksize = 20
-    #    for x in range(0, WINDOW_WIDTH, blocksize):
-    #        for y in range(0, WINDOW_HEIGHT, blocksize):
-    #            rect = pygame.Rect(x, y, blocksize, blocksize)
-    #            pygame.draw.rect(SCREEN, WHITE, rect, 1)
-
     # signals.init
 
-    peeps = Peeps(POPULATION)
+    # peeps init
+    p = Peeps(POPULATION)
 
-    print("INFO: pop: {}".format(peeps.ret_population()))
-    print("INFO: indivs: {}".format(peeps.ret_individuals()))
+    p.queueForDeath('12')
+    #p.queueForMove('42')
+    #p.queueForDeath('2')
+    #p.queueForDeath('14')
+    #p.queueForDeath('16')
+    #p.queueForDeath('1112')
+    #p.queueForDeath('19992')
+
+    print("INFO: pop: {}".format(p.ret_population()))
+    print("INFO: indivs: {}".format(p.ret_individuals()))
+    print("INFO: death queue length: {}".format(p.dq.size()))
+    print("INFO: move queue length: {}".format(p.mq.size()))
 
     generation = 0
     #initGenerationZero()
