@@ -2,7 +2,8 @@
 
 # This file contains Simulator(), the top-level entry point of the simulator.
 
-from src.peeps import deathQueue, moveQueue, Peeps
+from src.peeps import Peeps
+from src.spawnNewGeneration import initializeGenerationZero
 
 POPULATION = 300
 
@@ -27,19 +28,22 @@ class Simulator:
     # peeps init
     p = Peeps(POPULATION)
 
-    p.queueForDeath('12')
-    #p.queueForMove('42')
+    #p.queueForDeath('12')
+    #p.queueForMove('42', (12,13))
     #p.queueForDeath('2')
     #p.queueForDeath('14')
     #p.queueForDeath('16')
     #p.queueForDeath('1112')
     #p.queueForDeath('19992')
+    #p.queueForMove('43', (12,19))
+    #p.queueForMove('45', (13,43))
+    #p.queueForMove('47', (15,15))
+    #p.queueForMove('92', (17,53))
 
     print("INFO: pop: {}".format(p.ret_population()))
-    print("INFO: indivs: {}".format(p.ret_individuals()))
-    print("INFO: death queue length: {}".format(p.dq.size()))
-    print("INFO: move queue length: {}".format(p.mq.size()))
+    #print("INFO: indivs: {}".format(p.ret_individuals()))
+    #print("INFO: death queue length: {}".format(p.dq.size()))
+    #print("INFO: move queue length: {}".format(p.mq.size()))
 
     generation = 0
-    #initGenerationZero()
-
+    initializeGenerationZero(p)

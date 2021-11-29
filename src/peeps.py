@@ -50,7 +50,20 @@ class Peeps():
     def queueForDeath(self, indiv):
         self.dq.enqueue(indiv)
 
+    # TODO
+    # This executes all the
+    # queued deaths, removing the dead agents from the grid.
+    #def drainDeathQueue():
+
     # indiv won't move until end
     # of sim step when drainMoveQueue() is called.
-    def queueForMove(self, indiv):
-        self.mq.enqueue(indiv)
+    def queueForMove(self, indiv, newloc):
+        indiv_newloc = {}
+        indiv_newloc[indiv] = newloc
+        self.mq.enqueue(indiv_newloc)
+
+    # TODO
+    # This executes all the queued movements. Each movement is 
+    # typically one 8-neighbor cell distance but this
+    # function can move an individual any arbitrary distance.
+    #def drainMoveQueue():
